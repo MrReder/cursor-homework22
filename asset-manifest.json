@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cursor-homework22/static/css/main.31eb9727.chunk.css",
+    "main.js": "/cursor-homework22/static/js/main.12fd74f7.chunk.js",
+    "main.js.map": "/cursor-homework22/static/js/main.12fd74f7.chunk.js.map",
+    "runtime-main.js": "/cursor-homework22/static/js/runtime-main.748c5c5d.js",
+    "runtime-main.js.map": "/cursor-homework22/static/js/runtime-main.748c5c5d.js.map",
+    "static/js/2.63318fc5.chunk.js": "/cursor-homework22/static/js/2.63318fc5.chunk.js",
+    "static/js/2.63318fc5.chunk.js.map": "/cursor-homework22/static/js/2.63318fc5.chunk.js.map",
+    "static/js/3.7b475d95.chunk.js": "/cursor-homework22/static/js/3.7b475d95.chunk.js",
+    "static/js/3.7b475d95.chunk.js.map": "/cursor-homework22/static/js/3.7b475d95.chunk.js.map",
+    "index.html": "/cursor-homework22/index.html",
+    "static/css/main.31eb9727.chunk.css.map": "/cursor-homework22/static/css/main.31eb9727.chunk.css.map",
+    "static/js/2.63318fc5.chunk.js.LICENSE.txt": "/cursor-homework22/static/js/2.63318fc5.chunk.js.LICENSE.txt",
+    "static/media/padlock.9fc8846a.svg": "/cursor-homework22/static/media/padlock.9fc8846a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.748c5c5d.js",
+    "static/js/2.63318fc5.chunk.js",
+    "static/css/main.31eb9727.chunk.css",
+    "static/js/main.12fd74f7.chunk.js"
+  ]
+}
