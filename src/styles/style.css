@@ -1,0 +1,147 @@
+:root{
+    --main-dark: rgb(18, 18, 18);
+    --main-light: seashell;
+    --main-gray: rgb(146, 146, 146);
+    --accent-pink: rgb(244, 143, 178);
+    --accent-blue: rgb(144, 202, 249);
+}
+
+a{
+    text-decoration: none;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: var(--main-gray);
+    border-width: thick;
+    padding: 50px;
+    max-width: 400px;
+    background-color: var(--main-dark);
+}
+
+.sign-logo-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--main-light);
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.sign-up-logo-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--main-light);
+    margin-bottom: 70px;
+    padding-bottom: 20px;
+}
+
+.lock-img{
+    display: block;
+    background-color: var(--accent-pink);
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.sign-input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    height: 25px;
+}
+
+.person-info{
+    margin-bottom: 50px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+}
+
+.sign-up-input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 350px;
+    height: 25px;
+}
+
+.input-item{
+    padding: 15px;
+    background: var(--main-dark);
+    border-width: 1px;
+    border-color: var(--main-light);
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: var(--accent-blue);
+    -webkit-text-stroke-width: medium;
+}
+
+.checkbox-container{
+    color: var(--main-light);
+    margin-top: 5px;
+}
+
+.checkbox-up-container{
+    color: var(--main-light);
+    margin-top: 36px;
+}
+
+.sign-btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.sign-up-btn-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 110px;
+}
+
+.sign-btn{
+    width: 350px;
+    padding: 8px;
+    background-color: var(--accent-blue);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-questions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--accent-blue);
+}
+
+.btn-bottom-question{
+    text-decoration: none;
+    font-size: 12px;
+    color: var(--accent-blue);
+}
+
+.sign-footer-text{
+    color: var(--main-gray);
+    font-size: 10px;
+}
+
