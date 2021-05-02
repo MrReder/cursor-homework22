@@ -1,5 +1,5 @@
 import '../styles/style.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import lock from '../img/padlock.svg';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +26,22 @@ export const SignIn = () => {
     };
 
 
+    const getData = () => {
+        let getEmail = localStorage.getItem('email');
+        let getPwd = localStorage.getItem('pwd');
+        console.log(email === getEmail, pwd === getPwd);
+        if (email === getEmail && pwd === getPwd && !checkbox) {
+            window.location.assign(<Link to='/cursor-homework22/account-page'></Link>);
+        } else if (email === getEmail && pwd === getPwd && checkbox) {
+            window.location.assign(<Link to='/cursor-homework22/account-page'></Link>);
+        }
+        else {
+            alert('Please - input correct email/password!');
+            window.location.reload(<Link to='/cursor-homework22/'></Link>);
+        }
+
+    }
+
 
     return (
         <div className='wrapper'>
@@ -35,18 +51,18 @@ export const SignIn = () => {
                     <h1>Sign In</h1>
                 </div>
                 <div className='sign-input-container'>
-                    <input type="text" placeholder="Email Adress *" value={email} onChange={handleEmail} className='input-item' />
-                    <input type="text" placeholder="Password *" value={pwd} onChange={handlePwd} className='input-item' />
+                    <input type="email" placeholder="Email Adress *" value={email} onChange={handleEmail} className='input-item' defaultValue={!checkbox ? email.toString() : null} />
+                    <input type="password" placeholder="Password *" value={pwd} onChange={handlePwd} className='input-item' defaultValue={!checkbox ? email.toString() : null} />
                     <div className="checkbox-container">
                         <input type="checkbox" onChange={handleCheckbox} value={checkbox} defaultChecked="true" />
                         <span>Remember me</span>
                     </div>
                 </div>
                 <div className="sign-btn-container">
-                    <button className='sign-btn' >SIGN IN</button>
+                    <button className='sign-btn' onClick={getData}>SIGN IN</button>
                     <div className='btn-questions'>
                         <p className='btn-bottom-question'>Forgot password?</p>
-                        <Link to='/sign-up'><p className='btn-bottom-question'>Don`t have an account? Sign Up</p></Link>
+                        <Link to='/cursor-homework22/sign-up'><p className='btn-bottom-question'>Don`t have an account? Sign Up</p></Link>
                     </div>
                 </div>
                 <footer className='sign-footer-text-container'>
@@ -57,7 +73,7 @@ export const SignIn = () => {
     )
 };
 
-// import React, { useState,useEffect } from 'react';
+// import React, {useState, useEffect} from 'react';
 // const Form = () => {
 //   const [name, setname] = useState('')
 //   const [price,setprice]=useState('')

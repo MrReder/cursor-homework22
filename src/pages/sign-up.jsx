@@ -1,6 +1,5 @@
 import '../styles/style.css';
 import React, { useState, useEffect } from 'react';
-import { useLocalStorage } from '../hooks/local-storage';
 import lock from '../img/padlock.svg';
 import { Link } from 'react-router-dom';
 
@@ -21,7 +20,6 @@ export const SignUp = () => {
     }
 
     const handleName = (e) => {
-        console.log(e.target.value)
         setName(e.target.value);
     }
 
@@ -38,18 +36,37 @@ export const SignUp = () => {
         };
     };
 
+    const isEmailValid = () => {
+        const check = /\S+@\S+\.\S+/;
+        return check.test(email.toLocaleLowerCase())
+    };
+    const isPwdValid = () => {
+        const check = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        return check.test(pwd);
+    };
+
+    const isNameValid = () => {
+        const check = /^[A-Za-z].{3,}/;
+        return check.test(name);
+    };
+    const isLastNameValid = () => {
+        const check = /^[A-Za-z].{3,}/;
+        return check.test(lastName);
+    };
+
     const sendData = () => {
-        const userData = [
-            { name: handleName },
-            { lastName: handleLastName },
-            { email: handleEmail },
-            { pwd: handlePwd }
-        ]
+        if (handleCheckbox && isEmailValid && isPwdValid && isNameValid && isLastNameValid) {
+            const userData = [name, lastName, email, pwd];
+            localStorage.setItem('name', userData[0]);
+            localStorage.setItem('lastName', userData[1]);
+            localStorage.setItem('email', userData[2]);
+            localStorage.setItem('pwd', userData[3]);
 
-        if (handleCheckbox) {
-            localStorage.setItem('userData', JSON.stringify(userData));
-
-        }
+        } else if (!isEmailValid || !isEmailValid || !isPwdValid || !isNameValid || !isLastNameValid) {
+            alert(`Input correct information! Name and Last Name fields should contain at least 3 letters.
+Password should contain at least 8 symbols(including lesser and greater letter).
+Email should includes at least 3 symbols before the @, at least 2 symbols before the dot and at leats 2 symbols after dot.`)
+        };
     }
     return (
         <div className='wrapper'>
@@ -60,12 +77,13 @@ export const SignUp = () => {
                 </div>
                 <div className='sign-up-input-container'>
                     <div className="person-info">
-                        <input type="text" placeholder="First Name *" value={name} onChange={handleName} className='input-item' style={{ width: 135 }} />
-                        <input type="text" placeholder="Last Name *" value={lastName} onChange={handleLastName} className='input-item' style={{ width: 135 }} />
+                        < input type="text" placeholder="First Name *" value={name} onChange={handleName} className={`input-item ${isNameValid ? 'valid' : 'invalid'}`} style={{ width: 135 }} />
+                        <input type="text" placeholder="Last Name *" value={lastName} onChange={handleLastName} className={`input-item ${isLastNameValid ? 'valid' : 'invalid'}`} style={{ width: 135 }} />
                     </div>
                     <div className='sign-input-container'>
-                        <input type="text" placeholder="Email Adress *" value={email} onChange={handleEmail} className='input-item' />
-                        <input type="text" placeholder="Password *" value={pwd} onChange={handlePwd} className='input-item' />
+
+                        <input type="text" placeholder="Email Adress *" value={email} onChange={handleEmail} className={`input-item ${isEmailValid ? 'valid' : 'invalid'}`} />
+                        <input type="password" placeholder="Password *" value={pwd} onChange={handlePwd} className={`input-item ${isPwdValid ? 'valid' : 'invalid'}`} />
                     </div>
                     <div className="checkbox-up-container">
                         <input type="checkbox" onChange={handleCheckbox} value={checkbox} defaultChecked="true" />
@@ -74,7 +92,7 @@ export const SignUp = () => {
                 </div>
                 <div className="sign-up-btn-container">
                     <button className='sign-btn' onClick={sendData}>SIGN UP</button>
-                    <Link to='/'> <p className='btn-bottom-question'>Allready have an account? Sign In</p></Link>
+                    <Link to='/cursor-homework22/'> <p className='btn-bottom-question'>Allready have an account? Sign In</p></Link>
                 </div>
                 <footer className='sign-footer-text-container'>
                     <p className='sign-footer-text'>Copyright © Your Website 2020.</p>

@@ -145,3 +145,10 @@ a{
     font-size: 10px;
 }
 
+.valid{
+    border-color: seagreen;
+}
+
+.invalid{
+    border-color: tomato;
+}
