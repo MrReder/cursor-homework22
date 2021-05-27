@@ -146,9 +146,9 @@ a{
 }
 
 .valid{
-    border-color: seagreen;
+    outline-color: seagreen;
 }
 
 .invalid{
-    border-color: tomato;
+    outline-color: tomato;
 }

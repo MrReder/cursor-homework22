@@ -16,6 +16,17 @@ export const SignIn = () => {
     const handlePwd = (e) => {
         setPwd(e.target.value);
     }
+
+    const isPwdValid = () => {
+        const check = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        return check.test(pwd);
+    };
+
+    const isEmailValid = () => {
+        const check = /\S+@\S+\.\S+/;
+        return check.test(email.toLowerCase())
+    };
+
     const handleCheckbox = (e) => {
         if (checkbox) {
             setCheckbox(e.target.defaultCheked = "false");
@@ -51,8 +62,12 @@ export const SignIn = () => {
                     <h1>Sign In</h1>
                 </div>
                 <div className='sign-input-container'>
-                    <input type="email" placeholder="Email Adress *" value={email} onChange={handleEmail} className='input-item' defaultValue={!checkbox ? email.toString() : null} />
-                    <input type="password" placeholder="Password *" value={pwd} onChange={handlePwd} className='input-item' defaultValue={!checkbox ? email.toString() : null} />
+                    <input type="email" placeholder="Email Adress *" value={email} onChange={handleEmail}
+                        className={`input-item ${isEmailValid() ? 'valid' : 'invalid'}`}
+                        defaultValue={!checkbox ? email.toString() : null} />
+                    <input type="password" placeholder="Password *" value={pwd} onChange={handlePwd}
+                        className={`input-item ${isPwdValid() ? 'valid' : 'invalid'}`}
+                        defaultValue={!checkbox ? email.toString() : null} />
                     <div className="checkbox-container">
                         <input type="checkbox" onChange={handleCheckbox} value={checkbox} defaultChecked="true" />
                         <span>Remember me</span>
@@ -73,45 +88,3 @@ export const SignIn = () => {
     )
 };
 
-// import React, {useState, useEffect} from 'react';
-// const Form = () => {
-//   const [name, setname] = useState('')
-//   const [price,setprice]=useState('')
-//   const [item,setitem]=useState([]) 
-
-// const handleSubmit = (e) => {
-
-//     e.preventDefault();
-//     setitem([...item,{name:name,price:price}])
-//     setname('')
-//     setprice('')
-
-//   };
-
-// return(
-// <form onSubmit={handleSubmit}>
-
-// <input type = "text" name="name" value={name} onChange={(e) => setname(e.target.value)}/>
-
-// <input type = "number" name="price" value={price} onChange={(e) => setprice(e.target.value)}/>
-
-// <input type = "submit"/>
-
-// </form>
-// )
-
-// useEffect(()=>{
-
-//     const data = localStorage.getItem('data')
-
-//     if(data){
-//       setitem(JSON.parse(data))
-//      }
-
-//     },[])
-
-//     useEffect(()=>{
-
-//       localStorage.setItem('data',JSON.stringify(item))
-
-//     })
